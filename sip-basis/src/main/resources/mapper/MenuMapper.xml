@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sip.mapper.MenuMapper">
+  
+    <select id="queryParentMenuList" resultType="com.sip.pojo.Menu">
+        select menuid,pid,menuname,menuurl,isparent,flag,createdate,createuser,updatedate,updateuser from tb_menu
+        where flag = '1' and isparent = '1'
+        order by menuid asc
+    </select>
+
+    <select id="queryMenuListByPid" parameterType="java.lang.Integer" resultType="com.sip.pojo.Menu">
+        select menuid,pid,menuname,menuurl,isparent,flag,createdate,createuser,updatedate,updateuser from tb_menu
+        where flag = '1' and isparent = '0'
+        and pid = #{pid}
+        order by menuid asc
+    </select>
+ 
+</mapper>

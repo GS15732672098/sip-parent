@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: boot-admin   #模块名
+  profiles:
+    active: secure
+#
+server:
+  port: 8788
+
+# tag::configuration-eureka[]
+eureka:   #<1>
+  instance: #实例
+    leaseRenewalIntervalInSeconds: 10  #续租间隔秒
+    health-check-url-path: /actuator/health #健康检查url路径
+  client: #客户端
+    registryFetchIntervalSeconds: 5  #注册表获取间隔秒
+    serviceUrl: #服务url http://127.0.0.1:8761/eureka/,http://127.0.0.1:8769/eureka/
+      defaultZone: ${EUREKA_SERVICE_URL:http://127.0.0.1:8761}/eureka/  #默认的区:尤里卡服务URL
+
+management: #管理
+  endpoints:  #节点
+    web:
+      exposure: #暴露节点
+        include: "*"  #<2> 包含:"*"
+  endpoint:  #节点
+    health:  #健康
+      show-details: ALWAYS   #细节展示:永远
+# end::configuration-eureka[]
+
+---
+spring:
+  profiles: insecure  #配置文件:不安全
+
+---
+spring:
+  profiles: secure  #安全
+  security:   #安全框架
+    user:
+      name: "admin"
+      password: "admin"
+eureka:
+  instance:  #实例
+    metadata-map:  # 元数据-映射
+      user.name: "admin"         #这两个是服务器需要的
+      user.password: "admin"     #可以访问受保护的客户端节点

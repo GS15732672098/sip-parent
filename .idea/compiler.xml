@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="boot-admin" />
+        <module name="server-hi" />
+        <module name="server-hi2" />
+        <module name="service-gateway" />
+        <module name="service-turbine" />
+        <module name="service-zuul" />
+        <module name="sip-basis" />
+        <module name="sip-common" />
+        <module name="sip-feigh" />
+        <module name="sip-manage" />
+        <module name="sip-ribbon" />
+        <module name="sip-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="adm-client" target="1.8" />
+      <module name="adm-server" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="demo2" target="1.8" />
+      <module name="sip-feign" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="adm-client" options="-parameters" />
+      <module name="adm-server" options="-parameters" />
+      <module name="boot-admin" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="demo2" options="-parameters" />
+      <module name="server-hi" options="-parameters" />
+      <module name="server-hi2" options="-parameters" />
+      <module name="service-gateway" options="-parameters" />
+      <module name="service-turbine" options="-parameters" />
+      <module name="service-zuul" options="-parameters" />
+      <module name="sip-basis" options="-parameters" />
+      <module name="sip-common" options="-parameters" />
+      <module name="sip-feigh" options="-parameters" />
+      <module name="sip-manage" options="-parameters" />
+      <module name="sip-ribbon" options="-parameters" />
+      <module name="sip-server" options="-parameters" />
+    </option>
+  </component>
+</project>

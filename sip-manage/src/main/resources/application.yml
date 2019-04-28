@@ -1,0 +1,60 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /manage
+
+spring:
+  application:
+    name: sip-manage
+#
+#  redis:
+#    database: 0
+#    host: 192.168.223.128
+#    port: 6379
+#    password: 111111
+#    jedis:
+#      pool:
+#        max-active: 20
+#        max-wait: -1
+#        max-idle: 8
+#        min-idle: 0
+#    timeout: 0
+
+  # thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
+    prefer-ip-address: true
+    # 指定自己的ip信息，不指定的话会自己寻找
+    ip-address: 127.0.0.1
+    # 服务失效时间，默认值90秒
+    lease-expiration-duration-in-seconds: 90
+    # 服务续约的间隔，默认为30秒
+    lease-renewal-interval-in-seconds: 1000
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30
+
+

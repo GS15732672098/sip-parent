@@ -1,0 +1,27 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+server:
+  port: 8765
+spring:
+  application:
+    name: sip-feigh
+  redis:
+    host: localhost  #redis服务地址
+    port: 6379 #端口号
+#    timeout: 6000ms  #链接超时时间
+#    lettuce:
+#      pool:
+#        max-active: 8 #最大连接数
+#        max-wait: -1ms #等待时间
+#        max-idle: 8 #最大空余数
+#        min-idle: 0 #最小空余数
+#    database: 0
+
+feign:
+  hystrix:
+    enabled: true
+
+  

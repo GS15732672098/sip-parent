@@ -1,0 +1,47 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /basis
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
+    prefer-ip-address: true
+    # 指定自己的ip信息，不指定的话会自己寻找
+    ip-address: 127.0.0.1
+    # 服务失效时间，默认值90秒
+    lease-expiration-duration-in-seconds: 90
+    # 服务续约的间隔，默认为30秒
+    lease-renewal-interval-in-seconds: 30
+
+spring:
+  application:
+    name: sip-basis
+
+  datasource:
+    name: sip
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.6.50.122:3307/testlc?characterEncoding=utf8&useSSL=true
+    username: admin
+    password: 123abc
+    initial-size: 5
+    max-active: 20
+    maxWait: 60000
+    #间隔多久进行一次检测，检测需要关闭的空闲连接
+    time-between-eviction-runs-millis: 60000
+    #一个连接在池中最小生存的时间
+    min-evictable-idle-time-millis: 300000
+
+
+mybatis:
+  type-aliases-package: com.sip.pojo
+  mapper-locations: classpath:mapper/*.xml
+
+logging:
+  level:
+    com.dy.springboot.server.mapper: DEBUG
+
